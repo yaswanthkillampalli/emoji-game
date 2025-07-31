@@ -2,9 +2,9 @@
 :root {
   --max-content-width: 820px;
   --shadow-color: rgba(31, 38, 135, 0.15);
-  --accent-color: #ff6b6b;
-  --win-color: #28a745;
-  --lose-color: #ff6b6b;
+  --accent-color: #41c6cd;
+  --win-color: #264613;
+  --lose-color: #12373b;
   --text-color: #333;
 }
 
