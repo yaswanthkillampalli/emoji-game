@@ -1,3 +1,19 @@
+/* :root CSS variables for consistency */
+:root {
+  --max-content-width: 820px;
+  --emoji-list-gap-desktop: 28px;
+  --emoji-list-gap-mobile: 16px;
+  --emoji-list-padding-desktop: 30px 20px 40px 20px;
+  --emoji-list-padding-mobile: 16px 6px 24px 6px;
+  --emoji-list-bg: rgba(255, 255, 255, 0.24);
+  --emoji-list-border: 2px solid rgba(255, 255, 255, 0.3);
+  --emoji-list-radius: 16px;
+  --primary-gradient: linear-gradient(135deg, #6b48ff 0%, #f8b4d4 100%);
+  --shadow-color: rgba(31, 38, 135, 0.15);
+  --text-color: #333;
+  --accent-color: #ff6b6b;
+}
+
 /* Background */
 .emoji-game-bg {
   min-height: 100vh;
@@ -24,7 +40,7 @@
 /* Emoji list container */
 .emojis-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(4, minmax(100px, 1fr)); /* 4 columns on desktop */
   gap: var(--emoji-list-gap-desktop);
   width: 100%;
   padding: var(--emoji-list-padding-desktop);
@@ -62,15 +78,11 @@
 
 /* Responsive styles */
 @media (max-width: 900px) {
-  .emoji-game-content {
-    margin: 16px 8px;
-  }
-
   .emojis-list {
-    gap: var(--emoji-list-gap-mobile);
-    padding: var(--emoji-list-padding-mobile);
+    grid-template-columns: repeat(3, minmax(80px, 1fr)); /* 3 columns for tablets */
+    gap: 20px;
+    padding: 20px 10px;
     border-radius: 12px;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   }
 }
 
@@ -85,9 +97,10 @@
   }
 
   .emojis-list {
-    gap: 12px;
-    padding: 12px 4px;
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    grid-template-columns: repeat(2, minmax(60px, 1fr)); /* 2 columns for mobile */
+    gap: var(--emoji-list-gap-mobile);
+    padding: var(--emoji-list-padding-mobile);
+    max-width: 100vw;
   }
 }
 
