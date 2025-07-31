@@ -1,0 +1,97 @@
+/* Ensure these are in a global CSS file or included here */
+:root {
+  --max-content-width: 820px;
+  --shadow-color: rgba(31, 38, 135, 0.15);
+  --accent-color: #ff6b6b;
+  --emoji-size-desktop: 64px;
+  --emoji-size-mobile: 48px;
+  --emoji-btn-padding-desktop: 20px;
+  --emoji-btn-padding-mobile: 12px;
+  --primary-radius: 12px;
+}
+
+/* Emoji Item */
+.emoji-item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  animation: popIn 0.4s ease-out;
+}
+
+/* Emoji Button */
+.emoji-btn {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--primary-radius);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  backdrop-filter: blur(6px);
+  padding: var(--emoji-btn-padding-desktop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.emoji-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+  border-color: var(--accent-color);
+}
+
+.emoji-btn:active {
+  transform: scale(0.95);
+}
+
+.emoji-btn:focus-visible {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.3);
+}
+
+.emoji-img {
+  width: var(--emoji-size-desktop);
+  height: var(--emoji-size-desktop);
+  object-fit: contain;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.emoji-btn:hover .emoji-img {
+  transform: rotate(10deg);
+}
+
+/* Animation for card appearance */
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive for tablets and mobiles */
+@media (max-width: 900px) {
+  .emoji-btn {
+    padding: var(--emoji-btn-padding-mobile);
+  }
+
+  .emoji-img {
+    width: var(--emoji-size-mobile);
+    height: var(--emoji-size-mobile);
+  }
+}
+
+@media (max-width: 600px) {
+  .emoji-btn {
+    padding: 8px;
+  }
+
+  .emoji-img {
+    width: 40px;
+    height: 40px;
+  }
+}
